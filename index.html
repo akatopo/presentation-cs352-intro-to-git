@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Intro to GIT</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1>Intro to <i class="fa fa-git-square"></i></h1>
+        <h3><a href="mailto:katopod@csd.uoc.gr">katopod@csd.uoc.gr</a></h3><img src="images/avatar.png" class="avatar avatar--small">
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Let me tell you a story</h2>
+      </section>
+      <section class="gif gif--nagato">
+        <h1>Started alone</h1>
+      </section>
+      <section class="gif gif--pairCoding">
+        <h1>Got company</h1>
+      </section>
+      <section>
+        <h2>Used <i class="fa fa-envelope-o"></i> and <i class="fa fa-usb"></i> sticks</h2>
+      </section>
+      <section class="gif gif--sethRogenCrying">
+        <h1>Did not work that well</h1>
+      </section>
+      <section>
+        <h2>Used <i class="fa fa-dropbox"></i></h2>
+      </section>
+      <section class="gif gif--picardFacepalm">
+        <h1>Conflicted copies</h1>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>But then something wonderful happened</h2>
+      </section>
+      <section class="gif gif--pokeHighFive">
+        <h1>Found GIT</h1>
+      </section>
+      <section>
+        <h2>What is GIT?</h2><br class="bullet">
+        <ul>
+          <li>A <em>distributed</em> version control system</li>
+          <li><em>Very</em> popular</li>
+          <li><a href="https://github.com/about/press"><b>30.4M</b></a> repositories on <i class="fa fa-github"></i>, was <a href="https://web.archive.org/web/20130813144346/https://github.com/about/press"><b>7.8M</b></a> in 2013</li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Is GIT hard?</h2>
+      </section>
+      <section class="gif gif--kevinSpaceyNo">
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Will it take me a long time to learn?</h2>
+      </section>
+      <section class="gif gif--nickiMinajNo">
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>I use SVN</h2>
+      </section>
+      <section class="gif gif--sadOprah">
+        <h1>My condolences.</h1>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Setup</h2>
+      </section>
+      <section>
+        <h2>Installing GIT</h2><br class="bullet">
+        <ul>
+          <li><i class="fa fa-windows"></i> <i class="fa fa-apple"></i> <a href="https://desktop.github.com/">Github Desktop</a></li>
+          <li><i class="fa fa-linux"></i> <code class="language-bash">$ sudo apt-get install git-all</code> and friends</li>
+          <li><small>More @ <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git-scm.com</a></small></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Project hosting</h2><br class="bullet">
+        <ul>
+          <li><a href="https://education.github.com/pack"><i class="fa fa-github"></i> for education</a> 5 private repos</li>
+          <li><a href="https://bitbucket.org/"><i class="fa fa-bitbucket"></i></a> unlimited private repos</li>
+          <li><a href="https://gitlab.com/users/sign_in">gitlab</a> unlimited private repos</li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Terminology</h2>
+      </section>
+      <section>
+        <h2>Basic workflow</h2><br><img src="images/areas-BBYhMY.png" class="u-fullWidth">
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Let's create a repository!</h2>
+      </section>
+      <section>
+        <h2>Say hello</h2><br>
+        <pre><code class="language-bash">$ git config --global user.name "Alex Katopodis"
+$ git config --global user.email "katopod@csd.uoc.gr"
+</code></pre>
+      </section>
+      <section>
+        <h2>Initialize</h2>
+        <pre class="bullet"><code class="language-bash">$ git init</code></pre>
+        <p class="bullet">creates <code>.git</code> dir, repository is in there</p>
+      </section>
+      <section>
+        <h2>Check</h2>
+        <pre class="bullet"><code class="language-bash">$ git status</code></pre>
+        <p class="bullet">Shows info about modified, new, and deleted files</p>
+      </section>
+      <section>
+        <h2>Not much to see yet</h2>
+        <pre><code class="bullet language-bash">$ git status</code><br><code class="bullet language-git">On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+</code></pre>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>The repository is empty, let's add stuff</h2>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ touch nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet language-xxx">On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+  
+  <span class="u-red">nyancat.js</span>
+  
+nothing added to commit but untracked files present (use "git add" to track)
+</code></pre>
+      </section>
+      <section>
+        <h2>Add</h2>
+        <pre class="bullet"><code class="language-bash">$ git add &lt;file&gt;...</code></pre>
+        <p class="bullet">Add files to staging area</p>
+        <p class="bullet"><i class="fa fa-lightbulb-o"></i> <code class="language-bash">git add -A</code> adds all new,
+           modified, and deleted files from the working area
+           
+        </p>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ git add nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet language-xxx">On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+  
+  <span class="u-green">new file:   nyancat.js</span>
+  </code></pre>
+      </section>
+      <section>
+        <h2>Commit</h2>
+        <pre class="bullet"><code class="language-bash">$ git commit</code></pre>
+        <p class="bullet">Records changes to repository, you <em>have</em> to provide a commit message</p>
+        <div class="bullet">
+          <div><i class="fa fa-lightbulb-o"></i> <code class="language-bash">git commit -m "commit description"</code></div>
+          <p>will commit with the message you provide</p>
+        </div>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ git commit -m "nyan~"</code><br><code class="bullet language-bash">[master (root-commit) b748793] nyan~
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet language-bash">On branch master
+nothing to commit, working directory clean
+</code></pre>
+      </section>
+      <section>
+        <h2>Log</h2>
+        <pre class="bullet"><code class="language-bash">$ git log</code></pre>
+        <p class="bullet">
+          Shows commit history
+          
+        </p>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ git log</code><br><code class="bullet language-xxx"><span class="u-yellow">commit b748793a7febd39f911e53a1ee0f555924f8d77c</span>
+Author: Alex Katopodis &lt;akatopo@users.noreply.github.com&gt;
+Date:   Tue Dec 8 22:12:00 2015 +0200
+
+    nyan~
+    </code></pre>
+      </section>
+      <section>
+        <h2 class="bullet"><code>.gitignore</code></h2><br>
+        <ul>
+          <li>Special file</li>
+          <li>Indicates files that should be ignored from changes</li>
+          <li>Can be in root, and subdirs</li>
+          <li>Supports wildcards</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Sample <code>.gitignore</code></h2>
+        <pre class="bullet"><code class="language-git"># Can ignore specific files
+.DS_Store
+# Use wildcards as well
+*~
+*.swp
+# Can also ignore all directories
+# and files in a directory.
+tmp/**/*</code></pre><small class="bullet">More @ <a href="https://help.github.com/articles/ignoring-files/">help.github.com</a>
+          </small>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Let's add some more content</h2>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ echo "console.log('meow!')" >> nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet language-xxx">On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+  
+  <span class="u-red">modified:   nyancat.js</span>
+  
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre>
+      </section>
+      <section>
+        <h2>Changes</h2>
+        <pre class="bullet"><code class="language-bash">$ git diff</code></pre>
+        <p class="bullet">Shows changes between working directory and index</p>
+        <div class="bullet"><code class="language-bash">$ git diff HEAD</code>
+          <p>Shows changes between working directory and repository</p>
+        </div>
+        <div class="bullet"><code class="language-bash">$ git diff --cached</code>
+          <p>Shows changes between index and repository</p>
+        </div>
+      </section>
+      <section>
+        <pre><code class="bullet">$ git diff</code><br><code class="bullet language-git">diff --git a/nyancat.js b/nyancat.js
+index e69de29..f842659 100644
+--- a/nyancat.js
++++ b/nyancat.js
+@@ -0,0 +1 @@
++console.log('meow!')</code><br><code class="bullet language-bash">$ git add nyancat.js</code><br><code class="bullet language-bash">$ git commit -m "meow"</code><br><code class="bullet language-git">[master b4ea710] meow
+ 1 file changed, 1 insertion(+)
+ </code></pre>
+      </section>
+      <section>
+        <h2>Remove changes</h2>
+        <pre class="bullet"><code class="language-bash">$ git checkout -- &lt;file&gt;...</code></pre>
+        <p class="bullet">Removes changes from working directory</p>
+        <p class="bullet"><i class="fa fa-lightbulb-o"></i> The <code>--</code> separates options from other arguments</p>
+        <p class="bullet"><i class="fa fa-exclamation-triangle"></i> This will <b>permanently remove</b> your changes from the working directory
+          
+        </p>
+      </section>
+      <section>
+        <h2>Remove changes pt. 2</h2>
+        <pre class="bullet"><code class="language-bash">$ git reset HEAD &lt;file&gt;...</code></pre>
+        <p class="bullet">
+          Removes changes from index
+          
+        </p>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Branching out</h2>
+      </section>
+      <section>
+        <h2>Branch</h2>
+        <pre class="bullet"><code class="language-bash">$ git branch &lt;branchname&gt;</code></pre>
+        <p class="bullet">Creates branch</p>
+        <div class="bullet"><code class="language-bash">git branch</code>
+          <p>Lists branches</p>
+        </div>
+        <div class="bullet"><code class="language-bash">git branch -d &lt;branchname&gt;</code>
+          <p>Removes branch</p>
+        </div>
+      </section>
+      <section>
+        <h2>Checkout</h2>
+        <pre class="bullet"><code class="language-bash">$ git checkout &lt;branchname&gt;</code></pre>
+        <p class="bullet">Switches to branch</p>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ git branch branch-nyao</code><br><code class="bullet language-bash">$ git branch</code><br><code class="bullet language-xxx">&nbsp; branch-nyao
+<span class="u-green">* master</span></code><br><code class="bullet language-bash">$ git checkout branch-nyao</code><br><code class="bullet language-xxx">Switched to branch 'branch-nyao'
+</code></pre>
+      </section>
+      <section>
+        <h2>Merge</h2>
+        <pre class="bullet"><code class="language-bash">$ git merge &lt;branchname&gt;</code></pre>
+        <p class="bullet">Merges branch into current branch</p>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ echo "console.log('rawr!')" >> nyancat.js</code><br><code class="bullet language-bash">$ git add nyancat.js && git commit -m 'rawr'</code><br><code class="bullet language-git">[branch-nyao 550fd06] rawr
+ 1 file changed, 1 insertion(+)</code><br><code class="bullet language-bash">$ git checkout master</code><br><code class="bullet language-git">Switched to branch 'master'</code><br><code class="bullet language-bash">$ git merge branch-nyao</code><br><code class="bullet language-git">Updating b4ea710..550fd06
+Fast-forward
+ nyancat.js | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Remotes</h2>
+      </section>
+      <section>
+        <h2>Add remote</h2>
+        <pre class="bullet"><code class="language-bash">$ git remote add &lt;remotename&gt; &lt;remotelocation&gt;</code></pre>
+        <p class="bullet">Sets a new remote with name <code>remotename</code></p>
+        <div class="bullet"><code class="language-bash">git remote -v</code>
+          <p>Shows a list of existing remotes</p>
+        </div>
+      </section>
+      <section>
+        <h2>Push to remote</h2>
+        <pre class="bullet"><code class="language-bash">$ git push -u &lt;remotename&gt; &lt;remotebranchname&gt;</code></pre>
+        <p class="bullet">Pushes changes to remote with name <code>remotename</code> and branch <code>remotebranchname</code></p>
+        <p class="bullet"><i class="fa fa-lightbulb-o"></i> <code class="language-bash">-u</code> tracks the remote's branch
+          
+        </p>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash"><small>$ git remote add origin git@github.com:akatopo/yummy-octo-turtle.git</small></code><br><code class="bullet language-bash">$ git remote -v</code><br><code class="bullet language-bash">origin  git@github.com:akatopo/yummy-octo-turtle.git (fetch)
+origin  git@github.com:akatopo/yummy-octo-turtle.git (push)</code><br><code class="bullet language-bash">$ git push -u origin master</code><br><code class="bullet language-xxx">Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (9/9), 675 bytes | 0 bytes/s, done.
+Total 9 (delta 1), reused 0 (delta 0)
+To git@github.com:akatopo/yummy-octo-turtle.git
+ * [new branch]      master -> master
+<span class="u-green">Branch master set up to track remote branch master from origin.</span>
+</code></pre>
+      </section>
+      <section>
+        <h2>Pull from remote</h2>
+        <pre class="bullet"><code class="language-bash">$ git pull</code></pre>
+        <p class="bullet">Pulls changes from the remote's branch we tracked earlier</p>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash">$ git pull</code><br><code class="bullet language-xxx">remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:akatopo/yummy-octo-turtle
+   550fd06..1c866cb  master     -> origin/master
+Updating 550fd06..1c866cb
+Fast-forward
+ nyancat.js | 5 <span class="u-green">+++</span><span class="u-red">--</span>
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+ </code></pre>
+      </section>
+      <section>
+        <h2>Clone repository</h2>
+        <pre class="bullet"><code class="language-bash">git clone &lt;remotelocation&gt; &lt;dirname&gt;</code></pre>
+        <p class="bullet">Downloads selected remote repository from <code>&lt;remotelocation&gt;</code> to <code>&lt;dirname&gt;</code>
+          
+        </p>
+      </section>
+      <section>
+        <pre><code class="bullet language-bash"><small>$ git clone git@github.com:akatopo/yummy-octo-turtle.git yummy-octo-turtle</small></code><br><code class="bullet language-git">Cloning into 'yummy-octo-turtle'...
+remote: Counting objects: 12, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 12 (delta 1), reused 9 (delta 1), pack-reused 0
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (1/1), done.
+Checking connectivity... done.</code><br><code class="bullet language-bash">$ tree yummy-octo-turtle</code><br><code class="bullet language-git">yummy-octo-turtle
+└── nyancat.js
+
+0 directories, 1 file
+</code></pre>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Let's put this all together</h2>
+      </section>
+      <section><img src="../images/git-transport-GIOGGU.png" class="u-fullWidth u-rounded"></section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Extras</h2>
+      </section>
+      <section>
+        <h2>Apps</h2><br class="bullet">
+        <ul>
+          <li><a href="">Github desktop</a> <i class="fa fa-windows"></i> <i class="fa fa-apple"></i></li>
+          <li><a href="">Atlassian Sourcetree</a> <i class="fa fa-windows"></i> <i class="fa fa-apple"></i></li>
+          <li><a href="">Smartgit</a> <i class="fa fa-windows"></i> <i class="fa fa-apple"></i> <i class="fa fa-linux"></i></li>
+          <li><a href="http://www.git-legit.org/">Legit</a> <i class="fa fa-windows"></i>  <i class="fa fa-apple"></i> <i class="fa fa-linux"></i> <i class="fa fa-terminal"></i></li>
+          <li>Your IDE/code editor <i class="fa fa-heart"></i></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Documentation</h2><br class="bullet">
+        <ul>
+          <li><a href="https://help.github.com/">help.github.com</a></li>
+          <li><a href="http://devdocs.io/git/">devdocs.io</a></li>
+          <li><a href="https://git-scm.com/book/en/v1/Getting-Started">git-scm.com</a></li>
+          <li><code class="language-bash">git help &lt;command&gt;</code></li>
+          <li><a href="http://stackoverflow.com/questions/tagged/git"><i class="fa fa-stack-overflow"></i></a> <em>OFC...</em></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Clone this presentation</h2><br><a href="https://github.com/akatopo/presentation-cs352-intro-to-git">
+          https://github.com/akatopo/presentation-cs352-intro-to-git
+          </a>
+      </section>
+      <section data-camera>
+        <h2>Thank you</h2>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>

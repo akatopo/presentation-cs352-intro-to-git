@@ -1,0 +1,70 @@
+// New to Stylus? Check out http://learnboost.github.io/stylus
+// Use modern CSS thanks to Autoprefixer: https://github.com/ai/autoprefixer
+
+// Import CSS from "node_modules" and "bower_components"
+// thanks to Stylus' "import css" and "paths" options
+
+// @import 'normalizecss/normalize.css'
+
+@import 'prism/themes/prism-okaidia.css'
+// Check out "bower_components/prism/themes/" for available themes
+
+@import 'font-awesome/css/font-awesome.css'
+
+// Style using Bespoke Classes: https://github.com/markdalgleish/bespoke-classes
+
+// code blocks can take up all the slide width
+code[class*="language-"],
+pre[class*="language-"]
+  font-family: 'Meslo LG S', Menlo, Consolas, Monaco,
+    'Andale Mono', 'Ubuntu Mono', monospace
+  max-width: 640px // TODO: maybe add this to the theme
+
+// Some more horizontal padding for inline code
+:not(pre) > code[class*="language-"]
+  padding: .1em .5em
+
+// highlight current code bullet, mute others
+code
+  &.bespoke-bullet-active
+    opacity: 0.5
+  &.bespoke-bullet-active.bespoke-bullet-current
+    opacity: 1
+
+video
+  width: 100%!important
+  height: 100%
+  z-index: -1
+
+.u-fullWidth
+  max-width: 100%
+  height: auto
+
+.u-red
+  color: #BF2020;
+
+.u-green
+  color: #8AE234;
+
+.u-yellow
+  color: #9D8000;
+
+.gif
+  &--nagato
+    background-image: url('../images/gif/nagato.gif')
+  &--pairCoding
+    background-image: url('../images/gif/pair-coding.gif')
+  &--pokeHighFive
+    background-image: url('../images/gif/poke-high-five.gif')
+  &--beyonce
+    background-image: url('../images/gif/beyonce.gif')
+  &--sethRogenCrying
+    background-image: url('../images/gif/seth-rogen-crying.gif')
+  &--picardFacepalm
+    background-image: url('../images/gif/picard-facepalm.gif')
+  &--sadOprah
+    background-image: url('../images/gif/sad-oprah.gif')
+  &--kevinSpaceyNo
+    background-image: url('../images/gif/kevin-spacey-no.gif')
+  &--nickiMinajNo
+    background-image: url('../images/gif/nicki-minaj-no.gif')

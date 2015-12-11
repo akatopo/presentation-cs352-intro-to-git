@@ -1,0 +1,8 @@
+{
+  "name": "presentation-cs352-intro-to-git",
+  "version": "1.0.0",
+  "dependencies": {
+    "prism": "gh-pages",
+    "font-awesome": "fontawesome#~4.5.0"
+  }
+}

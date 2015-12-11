@@ -1,0 +1,523 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Intro to GIT
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section
+        h1 Intro to #[i.fa.fa-git-square]
+        h3
+          a(href='mailto:katopod@csd.uoc.gr') katopod@csd.uoc.gr
+        img.avatar.avatar--small(src='images/avatar.png')
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Let me tell you a story
+
+      section.gif.gif--nagato
+        h2 Started alone
+
+      section.gif.gif--pairCoding
+        h2 Got company
+
+      section
+        h2 Used #[i.fa.fa-envelope-o] and #[i.fa.fa-usb] sticks
+
+      section.gif.gif--sethRogenCrying
+        h2 Did not work that well
+
+      section
+        h2 Used #[i.fa.fa-dropbox]
+
+      section.gif.gif--picardFacepalm
+        h2 Conflicted copies
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 But then something wonderful happened
+
+      section.gif.gif--pokeHighFive
+        h2 Found GIT
+
+      section
+        h2 What is GIT?
+        br.bullet
+        ul
+          li A #[em distributed] version control system
+          li #[em Very] popular
+          li #[a(href='https://github.com/about/press') #[b 30.4M]] repositories on #[i.fa.fa-github], was #[a(href='https://web.archive.org/web/20130813144346/https://github.com/about/press') #[b 7.8M]] in 2013
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Is GIT hard?
+
+      section.gif.gif--kevinSpaceyNo
+        //- h2 Nope.
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Will it take me a long time to learn?
+
+      section.gif.gif--nickiMinajNo
+        //- h2 Nope.
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 I use SVN
+
+      section.gif.gif--sadOprah
+        h2 My condolences.
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Setup
+
+      section
+        h2 Installing GIT
+        br.bullet
+        ul
+          li #[i.fa.fa-windows] #[i.fa.fa-apple] #[a(href='https://desktop.github.com/') Github Desktop]
+          li #[i.fa.fa-linux] #[code.language-bash $ sudo apt-get install git-all] and friends
+          li
+            small More @ #[a(href='https://git-scm.com/book/en/v2/Getting-Started-Installing-Git') git-scm.com]
+
+      section
+        h2 Project hosting
+        br.bullet
+        ul
+          li #[a(href='https://education.github.com/pack') #[i.fa.fa-github] for education] 5 private repos
+          li #[a(href='https://bitbucket.org/') #[i.fa.fa-bitbucket]] unlimited private repos
+          li #[a(href='https://gitlab.com/users/sign_in') gitlab] unlimited private repos
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Terminology
+
+      section
+        h2 Basic workflow
+        br
+        img.u-fullWidth(src='images/areas-BBYhMY.png')
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Let's create a repository!
+
+      section
+        h2 Say hello
+        br
+        pre
+          code.language-bash.
+            $ git config --global user.name "Alex Katopodis"
+            $ git config --global user.email "katopod@csd.uoc.gr"
+
+      section
+        h2 Initialize
+        pre.bullet
+          code.language-bash $ git init
+        p.bullet creates #[code .git] dir, repository is in there
+
+      section
+        h2 Check
+        pre.bullet
+          code.language-bash $ git status
+        p.bullet Shows info about modified, new, and deleted files
+
+      section
+        h2 Not much to see yet
+        pre
+          code.bullet.language-bash $ git status
+          br
+          code.bullet.language-git.
+            On branch master
+
+            Initial commit
+
+            nothing to commit (create/copy files and use "git add" to track)
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 The repository is empty, let's add stuff
+
+      section
+        pre
+          code.bullet.language-bash $ touch nyancat.js
+          br
+          code.bullet.language-bash $ git status
+          br
+          code.bullet.language-xxx.
+            On branch master
+
+            Initial commit
+
+            Untracked files:
+              (use "git add &lt;file&gt;..." to include in what will be committed)
+
+              #[span.u-red nyancat.js]
+
+            nothing added to commit but untracked files present (use "git add" to track)
+
+      section
+        h2 Add
+        pre.bullet
+          code.language-bash $ git add &lt;file&gt;...
+        p.bullet Add files to staging area
+        p.bullet.
+          #[i.fa.fa-lightbulb-o] #[code.language-bash git add -A] adds all new,
+           modified, and deleted files from the working area
+
+      section
+        pre
+          code.bullet.language-bash $ git add nyancat.js
+          br
+          code.bullet.language-bash $ git status
+          br
+          code.bullet.language-xxx.
+            On branch master
+
+            Initial commit
+
+            Changes to be committed:
+              (use "git rm --cached &lt;file&gt;..." to unstage)
+
+              #[span.u-green new file:   nyancat.js]
+
+      section
+        h2 Commit
+        pre.bullet
+          code.language-bash $ git commit
+        p.bullet.
+          Records changes to repository, you #[em have] to provide a commit message
+        div.bullet
+          div.
+            #[i.fa.fa-lightbulb-o] #[code.language-bash git commit -m "commit description"]
+          p will commit with the message you provide
+
+      section
+        pre
+          code.bullet.language-bash $ git commit -m "nyan~"
+          br
+          code.bullet.language-bash.
+            [master (root-commit) b748793] nyan~
+             1 file changed, 0 insertions(+), 0 deletions(-)
+             create mode 100644 nyancat.js
+          br
+          code.bullet.language-bash $ git status
+          br
+          code.bullet.language-bash.
+            On branch master
+            nothing to commit, working directory clean
+
+      section
+        h2 Log
+        pre.bullet
+          code.language-bash $ git log
+        p.bullet.
+          Shows commit history
+
+      section
+        pre
+          code.bullet.language-bash $ git log
+          br
+          code.bullet.language-xxx.
+            #[span.u-yellow commit b748793a7febd39f911e53a1ee0f555924f8d77c]
+            Author: Alex Katopodis &lt;akatopo@users.noreply.github.com&gt;
+            Date:   Tue Dec 8 22:12:00 2015 +0200
+
+                nyan~
+
+      //- Change position of .gitignore slides? maybe not include at all?
+
+      section
+        h2.bullet
+          code .gitignore
+        br
+        ul
+          li Special file
+          li Indicates files that should be ignored from changes
+          li Can be in root, and subdirs
+          li Supports wildcards
+
+      section
+        h2 Sample #[code .gitignore]
+        pre.bullet
+          code.language-git.
+            # Can ignore specific files
+            .DS_Store
+            # Use wildcards as well
+            *~
+            *.swp
+            # Can also ignore all directories
+            # and files in a directory.
+            tmp/**/*
+        small.bullet.
+          More @ #[a(href='https://help.github.com/articles/ignoring-files/') help.github.com]
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Let's add some more content
+
+      section
+        pre
+          code.bullet.language-bash $ echo "console.log('meow!')" >> nyancat.js
+          br
+          code.bullet.language-bash $ git status
+          br
+          code.bullet.language-xxx.
+            On branch master
+            Changes not staged for commit:
+              (use "git add &lt;file&gt;..." to update what will be committed)
+              (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+              #[span.u-red modified:   nyancat.js]
+
+            no changes added to commit (use "git add" and/or "git commit -a")
+
+      section
+        h2 Changes
+        pre.bullet
+          code.language-bash $ git diff
+        p.bullet.
+          Shows changes between working directory and index
+        div.bullet
+          code.language-bash $ git diff HEAD
+          p Shows changes between working directory and repository
+        div.bullet
+          code.language-bash $ git diff --cached
+          p Shows changes between index and repository
+
+      section
+        pre
+          code.bullet $ git diff
+          br
+          code.bullet.language-git.
+            diff --git a/nyancat.js b/nyancat.js
+            index e69de29..f842659 100644
+            --- a/nyancat.js
+            +++ b/nyancat.js
+            @@ -0,0 +1 @@
+            +console.log('meow!')
+          br
+          code.bullet.language-bash $ git add nyancat.js
+          br
+          code.bullet.language-bash $ git commit -m "meow"
+          br
+          code.bullet.language-git.
+            [master b4ea710] meow
+             1 file changed, 1 insertion(+)
+
+      section
+        h2 Remove changes
+        pre.bullet
+          code.language-bash $ git checkout -- &lt;file&gt;...
+        p.bullet.
+          Removes changes from working directory
+        p.bullet.
+          #[i.fa.fa-lightbulb-o] The #[code --] separates options from other arguments
+        p.bullet.
+          #[i.fa.fa-exclamation-triangle] This will #[b permanently remove] your changes from the working directory
+
+      section
+        h2 Remove changes pt. 2
+        pre.bullet
+          code.language-bash $ git reset HEAD &lt;file&gt;...
+        p.bullet.
+          Removes changes from index
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Branching out
+
+      section
+        h2 Branch
+        pre.bullet
+          code.language-bash $ git branch &lt;branchname&gt;
+        p.bullet Creates branch
+        div.bullet
+          code.language-bash git branch
+          p Lists branches
+        div.bullet
+          code.language-bash git branch -d &lt;branchname&gt;
+          p Removes branch
+        //- p.bullet.
+        //-   #[code.language-bash git branch] lists branches
+        //- p.bullet.
+          #[code.language-bash git branch -d &lt;branchname&gt;] removes branch
+
+      section
+        h2 Checkout
+        pre.bullet
+          code.language-bash $ git checkout &lt;branchname&gt;
+        p.bullet Switches to branch
+
+      section
+        pre
+          code.bullet.language-bash $ git branch branch-nyao
+          br
+          code.bullet.language-bash $ git branch
+          br
+          code.bullet.language-xxx.
+            &nbsp; branch-nyao
+            #[span.u-green * master]
+          br
+          code.bullet.language-bash $ git checkout branch-nyao
+          br
+          code.bullet.language-xxx.
+            Switched to branch 'branch-nyao'
+
+      section
+        h2 Merge
+        pre.bullet
+          code.language-bash $ git merge &lt;branchname&gt;
+        p.bullet Merges branch into current branch
+
+      section
+        pre
+          code.bullet.language-bash $ echo "console.log('rawr!')" >> nyancat.js
+          br
+          code.bullet.language-bash $ git add nyancat.js && git commit -m 'rawr'
+          br
+          code.bullet.language-git.
+            [branch-nyao 550fd06] rawr
+             1 file changed, 1 insertion(+)
+          br
+          code.bullet.language-bash $ git checkout master
+          br
+          code.bullet.language-git Switched to branch 'master'
+          br
+          code.bullet.language-bash $ git merge branch-nyao
+          br
+          code.bullet.language-git.
+            Updating b4ea710..550fd06
+            Fast-forward
+             nyancat.js | 1 +
+             1 file changed, 1 insertion(+)
+          //- br
+          //- code.bullet.language-bash $ git branch -d branch-nyao
+          //- br
+          //- code.bullet.language-git Deleted branch branch-nyao (was 550fd06).
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Remotes
+
+      section
+        h2 Add remote
+        pre.bullet
+          code.language-bash $ git remote add &lt;remotename&gt; &lt;remotelocation&gt;
+        p.bullet Sets a new remote with name #[code remotename]
+        div.bullet
+          code.language-bash git remote -v
+          p Shows a list of existing remotes
+
+      section
+        h2 Push to remote
+        pre.bullet
+          code.language-bash $ git push -u &lt;remotename&gt; &lt;remotebranchname&gt;
+        p.bullet.
+          Pushes changes to remote with name #[code remotename] and branch #[code remotebranchname]
+        p.bullet.
+          #[i.fa.fa-lightbulb-o] #[code.language-bash -u] tracks the remote's branch
+
+      section
+        pre
+          code.bullet.language-bash
+            small.
+              $ git remote add origin git@github.com:akatopo/yummy-octo-turtle.git
+          br
+          code.bullet.language-bash $ git remote -v
+          br
+          code.bullet.language-bash.
+            origin  git@github.com:akatopo/yummy-octo-turtle.git (fetch)
+            origin  git@github.com:akatopo/yummy-octo-turtle.git (push)
+          br
+          code.bullet.language-bash $ git push -u origin master
+          br
+          code.bullet.language-xxx.
+            Counting objects: 9, done.
+            Delta compression using up to 4 threads.
+            Compressing objects: 100% (3/3), done.
+            Writing objects: 100% (9/9), 675 bytes | 0 bytes/s, done.
+            Total 9 (delta 1), reused 0 (delta 0)
+            To git@github.com:akatopo/yummy-octo-turtle.git
+             * [new branch]      master -> master
+            #[span.u-green Branch master set up to track remote branch master from origin.]
+
+      section
+        h2 Pull from remote
+        pre.bullet
+          code.language-bash $ git pull
+        p.bullet Pulls changes from the remote's branch we tracked earlier
+
+      section
+        pre
+          code.bullet.language-bash $ git pull
+          br
+          code.bullet.language-xxx.
+            remote: Counting objects: 3, done.
+            remote: Compressing objects: 100% (2/2), done.
+            remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+            Unpacking objects: 100% (3/3), done.
+            From github.com:akatopo/yummy-octo-turtle
+               550fd06..1c866cb  master     -> origin/master
+            Updating 550fd06..1c866cb
+            Fast-forward
+             nyancat.js | 5 #[span.u-green +++]#[span.u-red --]
+             1 file changed, 3 insertions(+), 2 deletions(-)
+
+      section
+        h2 Clone repository
+        pre.bullet
+          code.language-bash git clone &lt;remotelocation&gt; &lt;dirname&gt;
+        p.bullet.
+          Downloads selected remote repository from #[code &lt;remotelocation&gt;] to #[code &lt;dirname&gt;]
+
+      section
+        pre
+          code.bullet.language-bash #[small $ git clone git@github.com:akatopo/yummy-octo-turtle.git yummy-octo-turtle]
+          br
+          code.bullet.language-git.
+            Cloning into 'yummy-octo-turtle'...
+            remote: Counting objects: 12, done.
+            remote: Compressing objects: 100% (4/4), done.
+            remote: Total 12 (delta 1), reused 9 (delta 1), pack-reused 0
+            Receiving objects: 100% (12/12), done.
+            Resolving deltas: 100% (1/1), done.
+            Checking connectivity... done.
+          br
+          code.bullet.language-bash $ tree yummy-octo-turtle
+          br
+          code.bullet.language-git.
+            yummy-octo-turtle
+            └── nyancat.js
+
+            0 directories, 1 file
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Let's put this all together
+
+      section
+        img.u-fullWidth(src='../images/git-transport-GIOGGU.png')
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Extras
+
+      section
+        h2 Apps
+        br.bullet
+        ul
+          li #[a(href='') Github desktop] #[i.fa.fa-windows] #[i.fa.fa-apple]
+          li #[a(href='') Atlassian Sourcetree] #[i.fa.fa-windows] #[i.fa.fa-apple]
+          li #[a(href='') Smartgit] #[i.fa.fa-windows] #[i.fa.fa-apple] #[i.fa.fa-linux]
+          li #[a(href='http://www.git-legit.org/') Legit] #[i.fa.fa-windows]  #[i.fa.fa-apple] #[i.fa.fa-linux] #[i.fa.fa-terminal]
+          li Your IDE/code editor #[i.fa.fa-heart]
+
+      section
+        h2 Documentation
+        br.bullet
+        ul
+          li #[a(href='https://help.github.com/') help.github.com]
+          li #[a(href='http://devdocs.io/git/') devdocs.io]
+          li #[a(href='https://git-scm.com/book/en/v1/Getting-Started') git-scm.com]
+          li
+            code.language-bash git help &lt;command&gt;
+          li #[a(href='http://stackoverflow.com/questions/tagged/git') #[i.fa.fa-stack-overflow]] #[em OFC...]
+
+      section(data-camera)
+        h2 Thank you
+
+    script(src='build/build.js')

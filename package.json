@@ -1,6 +1,11 @@
 {
   "name": "presentation-cs352-intro-to-git",
   "version": "1.0.0",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akatopo/presentation-cs352-intro-to-git.git"
+  },
   "dependencies": {
     "prismjs": "^1.9.0",
     "font-awesome": "^4.7.0"

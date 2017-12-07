@@ -24,7 +24,7 @@ var pkg = require('./package.json'),
 gulp.task('js', ['clean:js'], function() {
   return gulp.src('src/scripts/main.js')
     .pipe(isDist ? through() : plumber())
-    .pipe(browserify({ transform: ['debowerify'], debug: !isDist }))
+    .pipe(browserify({ debug: !isDist }))
     .pipe(isDist ? uglify() : through())
     .pipe(rename('build.js'))
     .pipe(gulp.dest('dist/build'))
@@ -62,7 +62,7 @@ gulp.task('images', ['clean:images'], function() {
 });
 
 gulp.task('fa-fonts', ['clean:fa-fonts'], function () {
-  return gulp.src('bower_components/font-awesome/fonts/*')
+  return gulp.src('node_modules/font-awesome/fonts/*')
     .pipe(gulp.dest('dist/fonts'))
     .pipe(connect.reload());
 });

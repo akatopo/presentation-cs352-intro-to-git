@@ -81,6 +81,7 @@
           <li><a href="https://education.github.com/pack"><i class="fa fa-github"></i> for education</a> unlimited private repos while you are a student</li>
           <li><a href="https://bitbucket.org/"><i class="fa fa-bitbucket"></i></a> unlimited private repos</li>
           <li><a href="https://gitlab.com/users/sign_in">gitlab</a> unlimited private repos</li>
+          <li><a href="https://keybase.io/">keybase.io</a> encrypted private repos</li>
         </ul>
       </section>
       <section data-bespoke-backdrop="emphatic" class="emphatic-text">
@@ -121,7 +122,7 @@ nothing to commit (create/copy files and use "git add" to track)
         <h2>The repository is empty, let's add stuff</h2>
       </section>
       <section>
-        <pre><code class="bullet language-bash">$ touch nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet language-xxx">On branch master
+        <pre><code class="bullet language-bash">$ touch nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet">On branch master
 
 Initial commit
 
@@ -143,7 +144,7 @@ nothing added to commit but untracked files present (use "git add" to track)
         </p>
       </section>
       <section>
-        <pre><code class="bullet language-bash">$ git add nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet language-xxx">On branch master
+        <pre><code class="bullet language-bash">$ git add nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet">On branch master
 
 Initial commit
 
@@ -178,7 +179,7 @@ nothing to commit, working directory clean
         </p>
       </section>
       <section>
-        <pre><code class="bullet language-bash">$ git log</code><br><code class="bullet language-xxx"><span class="u-yellow">commit b748793a7febd39f911e53a1ee0f555924f8d77c</span>
+        <pre><code class="bullet language-bash">$ git log</code><br><code class="bullet"><span class="u-yellow">commit b748793a7febd39f911e53a1ee0f555924f8d77c</span>
 Author: Alex Katopodis &lt;akatopo@users.noreply.github.com&gt;
 Date:   Tue Dec 8 22:12:00 2015 +0200
 
@@ -210,7 +211,7 @@ tmp/**/*</code></pre><small class="bullet">More @ <a href="https://help.github.c
         <h2>Let's add some more content</h2>
       </section>
       <section>
-        <pre><code class="bullet language-bash">$ echo "console.log('meow!')" >> nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet language-xxx">On branch master
+        <pre><code class="bullet language-bash">$ echo "console.log('meow!')" >> nyancat.js</code><br><code class="bullet language-bash">$ git status</code><br><code class="bullet">On branch master
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
@@ -246,7 +247,7 @@ index e69de29..f842659 100644
         <pre class="bullet"><code class="language-bash">$ git checkout -- &lt;file&gt;...</code></pre>
         <p class="bullet">Removes changes from working directory</p>
         <p class="bullet"><i class="fa fa-lightbulb-o"></i> The <code>--</code> separates options from other arguments</p>
-        <p class="bullet"><i class="fa fa-exclamation-triangle"></i> This will <b>permanently remove</b> your changes from the working directory
+        <p class="bullet"><i class="fa fa-exclamation-triangle u-red"></i> This will <b>permanently remove</b> your changes from the working directory
           
         </p>
       </section>
@@ -260,6 +261,9 @@ index e69de29..f842659 100644
       </section>
       <section data-bespoke-backdrop="emphatic" class="emphatic-text">
         <h2>Branching out</h2>
+      </section>
+      <section>
+        <h2>Create a new branch</h2><br><img src="images/ahead-behind.png" class="u-fullWidth">
       </section>
       <section>
         <h2>Branch</h2>
@@ -278,9 +282,12 @@ index e69de29..f842659 100644
         <p class="bullet">Switches to branch</p>
       </section>
       <section>
-        <pre><code class="bullet language-bash">$ git branch branch-nyao</code><br><code class="bullet language-bash">$ git branch</code><br><code class="bullet language-xxx">&nbsp; branch-nyao
-<span class="u-green">* master</span></code><br><code class="bullet language-bash">$ git checkout branch-nyao</code><br><code class="bullet language-xxx">Switched to branch 'branch-nyao'
+        <pre><code class="bullet language-bash">$ git branch branch-nyao</code><br><code class="bullet language-bash">$ git branch</code><br><code class="bullet">&nbsp; branch-nyao
+<span class="u-green">* master</span></code><br><code class="bullet language-bash">$ git checkout branch-nyao</code><br><code class="bullet">Switched to branch 'branch-nyao'
 </code></pre>
+      </section>
+      <section>
+        <h2>Merge changes back</h2><br><img src="images/regular_branch_merge.png" class="u-fullWidth">
       </section>
       <section>
         <h2>Merge</h2>
@@ -315,7 +322,7 @@ Fast-forward
       </section>
       <section>
         <pre><code class="bullet language-bash"><small>$ git remote add origin git@github.com:akatopo/yummy-octo-turtle.git</small></code><br><code class="bullet language-bash">$ git remote -v</code><br><code class="bullet language-bash">origin  git@github.com:akatopo/yummy-octo-turtle.git (fetch)
-origin  git@github.com:akatopo/yummy-octo-turtle.git (push)</code><br><code class="bullet language-bash">$ git push -u origin master</code><br><code class="bullet language-xxx">Counting objects: 9, done.
+origin  git@github.com:akatopo/yummy-octo-turtle.git (push)</code><br><code class="bullet language-bash">$ git push -u origin master</code><br><code class="bullet">Counting objects: 9, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (9/9), 675 bytes | 0 bytes/s, done.
@@ -331,7 +338,7 @@ To git@github.com:akatopo/yummy-octo-turtle.git
         <p class="bullet">Pulls changes from the remote's branch we tracked earlier</p>
       </section>
       <section>
-        <pre><code class="bullet language-bash">$ git pull</code><br><code class="bullet language-xxx">remote: Counting objects: 3, done.
+        <pre><code class="bullet language-bash">$ git pull</code><br><code class="bullet">remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.

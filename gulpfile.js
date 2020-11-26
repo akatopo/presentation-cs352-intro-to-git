@@ -1,30 +1,37 @@
-/* jshint node:true */
-
 'use strict';
 
 var pkg = require('./package.json'),
-  gulp = require('gulp'),
-  gutil = require('gulp-util'),
-  plumber = require('gulp-plumber'),
-  rename = require('gulp-rename'),
-  connect = require('gulp-connect'),
-  browserify = require('gulp-browserify'),
-  uglify = require('gulp-uglify'),
-  jade = require('gulp-jade'),
-  stylus = require('gulp-stylus'),
   autoprefixer = require('gulp-autoprefixer'),
+  browserify = require('browserify'),
+  buffer = require('vinyl-buffer'),
+  connect = require('gulp-connect'),
   csso = require('gulp-csso'),
   del = require('del'),
-  through = require('through'),
-  opn = require('opn'),
   ghpages = require('gh-pages'),
+  gulp = require('gulp'),
+  gutil = require('gulp-util'),
   path = require('path'),
-  isDist = process.argv.indexOf('serve') === -1;
+  plumber = require('gulp-plumber'),
+  pug = require('gulp-pug'),
+  rename = require('gulp-rename'),
+  source = require('vinyl-source-stream'),
+  stylus = require('gulp-stylus'),
+  through = require('through'),
+  uglify = require('gulp-uglify'),
+  isDist = process.argv.indexOf('serve') === -1,
+  // browserifyPlumber fills the role of plumber() when working with browserify
+  browserifyPlumber = function(e) {
+    if (isDist) throw e;
+    gutil.log(e.stack);
+    this.emit('end');
+  };
 
 gulp.task('js', ['clean:js'], function() {
-  return gulp.src('src/scripts/main.js')
-    .pipe(isDist ? through() : plumber())
-    .pipe(browserify({ debug: !isDist }))
+  // see https://wehavefaces.net/gulp-browserify-the-gulp-y-way-bb359b3f9623
+  return browserify('src/scripts/main.js').bundle()
+    .on('error', browserifyPlumber)
+    .pipe(source('src/scripts/main.js'))
+    .pipe(buffer())
     .pipe(isDist ? uglify() : through())
     .pipe(rename('build.js'))
     .pipe(gulp.dest('dist/build'))
@@ -32,9 +39,9 @@ gulp.task('js', ['clean:js'], function() {
 });
 
 gulp.task('html', ['clean:html'], function() {
-  return gulp.src('src/index.jade')
+  return gulp.src('src/index.pug')
     .pipe(isDist ? through() : plumber())
-    .pipe(jade({ pretty: true }))
+    .pipe(pug({ pretty: '  ' }))
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
@@ -43,12 +50,8 @@ gulp.task('html', ['clean:html'], function() {
 gulp.task('css', ['clean:css'], function() {
   return gulp.src('src/styles/main.styl')
     .pipe(isDist ? through() : plumber())
-    .pipe(stylus({
-      // Allow CSS to be imported from node_modules and bower_components
-      'include css': true,
-      'paths': ['./node_modules', './bower_components']
-    }))
-    .pipe(autoprefixer('last 2 versions', { map: false }))
+    .pipe(stylus({ 'include css': true, paths: ['./node_modules'] }))
+    .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
     .pipe(isDist ? csso() : through())
     .pipe(rename('build.css'))
     .pipe(gulp.dest('dist/build'))
@@ -61,63 +64,60 @@ gulp.task('images', ['clean:images'], function() {
     .pipe(connect.reload());
 });
 
-gulp.task('fa-fonts', ['clean:fa-fonts'], function () {
-  return gulp.src('node_modules/font-awesome/fonts/*')
+gulp.task('fonts', ['clean:fonts'], function() {
+  return gulp.src([
+      'src/fonts/**/*',
+      'node_modules/font-awesome/fonts/*'
+    ])
     .pipe(gulp.dest('dist/fonts'))
     .pipe(connect.reload());
 });
 
-gulp.task('clean', function(done) {
-  del('dist', done);
+gulp.task('clean', function() {
+  return del.sync('dist');
 });
 
-gulp.task('clean:html', function(done) {
-  del('dist/index.html', done);
+gulp.task('clean:html', function() {
+  return del('dist/index.html');
 });
 
-gulp.task('clean:js', function(done) {
-  del('dist/build/build.js', done);
+gulp.task('clean:js', function() {
+  return del('dist/build/build.js');
 });
 
-gulp.task('clean:css', function(done) {
-  del('dist/build/build.css', done);
+gulp.task('clean:css', function() {
+  return del('dist/build/build.css');
 });
 
-gulp.task('clean:images', function(done) {
-  del('dist/images', done);
+gulp.task('clean:images', function() {
+  return del('dist/images');
 });
 
-gulp.task('clean:fa-fonts', function(done) {
-  del('dist/fonts', done);
+gulp.task('clean:fonts', function() {
+  return del('dist/fonts');
 });
 
 gulp.task('connect', ['build'], function() {
-  connect.server({
-    root: 'dist',
-    livereload: true
-  });
+  connect.server({ root: 'dist', port: process.env.PORT || 8080, livereload: true });
 });
 
-gulp.task('open', ['connect'], function (done) {
-  opn('http://localhost:8080', done);
-});
-
-gulp.task('watch', ['fa-fonts'], function() {
-  gulp.watch('src/**/*.jade', ['html']);
+gulp.task('watch', function() {
+  gulp.watch('src/**/*.pug', ['html']);
+  gulp.watch('src/scripts/**/*.js', ['js']);
   gulp.watch('src/styles/**/*.styl', ['css']);
   gulp.watch('src/images/**/*', ['images']);
-  gulp.watch([
-    'src/scripts/**/*.js',
-    'bespoke-theme-*/dist/*.js' // Allow themes to be developed in parallel
-  ], ['js']);
+  gulp.watch('src/fonts/*', ['fonts']);
 });
 
-gulp.task('deploy', ['build'], function(done) {
+gulp.task('publish', ['clean', 'build'], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
 });
 
-gulp.task('build', ['js', 'html', 'css', 'images', 'fa-fonts']);
+// old alias for publishing on gh-pages
+gulp.task('deploy', ['publish']);
 
-gulp.task('serve', ['open', 'watch']);
+gulp.task('build', ['js', 'html', 'css', 'images', 'fonts']);
+
+gulp.task('serve', ['connect', 'watch']);
 
 gulp.task('default', ['build']);

@@ -1,31 +1,32 @@
 // Require Node modules in the browser thanks to Browserify: http://browserify.org
-var bespoke = require('bespoke'),
-  theme = require('bespoke-theme-build-wars'),
-  camera = require('bespoke-camera'),
-  classes = require('bespoke-classes'),
-  keys = require('bespoke-keys'),
-  touch = require('bespoke-touch'),
-  bullets = require('bespoke-bullets'),
-  backdrop = require('bespoke-backdrop'),
-  scale = require('bespoke-scale'),
-  hash = require('bespoke-hash'),
-  progress = require('bespoke-progress');
+var bespoke = require('bespoke');
+var classes = require('bespoke-classes');
+var nav = require('bespoke-nav');
+var scale = require('bespoke-scale');
+var bullets = require('bespoke-bullets');
+var hash = require('bespoke-hash');
+var prism = require('bespoke-prism');
+var multimedia = require('bespoke-multimedia');
+var extern = require('bespoke-extern');
+var theme = require('bespoke-theme-build-wars');
+var backdrop = require('bespoke-backdrop');
+var fullscreen = require('bespoke-fullscreen');
+var progress = require('bespoke-progress');
+var camera = require('bespoke-camera');
 
 // Bespoke.js
-bespoke.from('article', [
+bespoke.from({ parent: 'article.deck', slides: 'section' }, [
   theme(),
   classes(),
-  keys(),
-  touch(),
-  bullets('li, .bullet'),
-  backdrop(),
+  nav(),
   scale(),
+  bullets('li, .bullet'),
   hash(),
+  prism(),
+  multimedia(),
+  backdrop(),
+  fullscreen(),
   progress(),
-  camera()
+  camera(),
+  extern(bespoke)
 ]);
-
-// Prism syntax highlighting
-require('prismjs');
-require('prismjs/components/prism-git');
-

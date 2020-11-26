@@ -6,41 +6,50 @@
     "type": "git",
     "url": "https://github.com/akatopo/presentation-cs352-intro-to-git.git"
   },
-  "dependencies": {
-    "font-awesome": "^4.7.0",
-    "prismjs": "^1.9.0"
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "start": "gulp serve"
+  },
+  "resolutions": {
+    "graceful-fs": "4.2.3"
   },
   "devDependencies": {
-    "bespoke": "^1.0.0",
+    "bespoke": "^1.1.0",
     "bespoke-backdrop": "^1.0.0",
-    "bespoke-bullets": "^1.0.0",
+    "bespoke-bullets": "^1.1.0",
     "bespoke-camera": "^1.0.0",
     "bespoke-classes": "^1.0.0",
-    "bespoke-hash": "^1.0.0",
-    "bespoke-keys": "^1.0.0",
-    "bespoke-progress": "^1.0.0",
-    "bespoke-scale": "^1.0.0",
-    "bespoke-theme-build-wars": "^1.0.0",
-    "bespoke-touch": "^1.0.0",
-    "del": "^1.1.1",
-    "gh-pages": "^1.1.0",
+    "bespoke-extern": "^1.0.0",
+    "bespoke-hash": "^1.0.2",
+    "bespoke-multimedia": "^1.1.0",
+    "bespoke-nav": "^1.0.2",
+    "bespoke-prism": "^1.0.1",
+    "bespoke-scale": "^1.0.1",
+    "bespoke-theme-build-wars": "^1.0.1",
+    "browserify": "^14.4.0",
+    "del": "^3.0.0",
+    "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "0.0.7",
-    "gulp-browserify": "^0.5.0",
-    "gulp-connect": "^2.0.5",
-    "gulp-csso": "^0.2.9",
-    "gulp-jade": "^0.6.0",
-    "gulp-plumber": "^0.6.3",
-    "gulp-rename": "^1.2.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-csso": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.0.3",
+    "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.6.0",
-    "gulp-uglify": "^0.3.1",
-    "gulp-util": "^2.2.17",
-    "insert-css": "^0.2.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
     "normalizecss": "^3.0.0",
-    "opn": "^0.1.2",
-    "through": "^2.3.4"
+    "through": "^2.3.8",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=4.2.0"
+  },
+  "dependencies": {
+    "bespoke-fullscreen": "^1.0.0",
+    "bespoke-progress": "^1.0.0",
+    "font-awesome": "^4.7.0"
   }
 }

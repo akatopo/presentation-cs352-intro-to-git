@@ -7,12 +7,12 @@
     <link rel="stylesheet" type="text/css" href="build/build.css">
   </head>
   <body>
-    <article>
+    <article class="deck">
       <section>
         <h1>Intro to <i class="fa fa-git-square u-gitTomato"></i></h1>
-        <h3><a href="mailto:katopod@csd.uoc.gr">katopod@csd.uoc.gr</a></h3><img src="images/avatar.jpg" class="avatar avatar--small">
+        <h3><a href="mailto:katopod@csd.uoc.gr">katopod@csd.uoc.gr</a></h3><img class="avatar avatar--small" src="images/avatar.jpg">
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Let me tell you a story</h2>
       </section>
       <section class="gif gif--nagato">
@@ -33,7 +33,7 @@
       <section class="gif gif--picardFacepalm">
         <h1>Conflicted copies</h1>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>But then something wonderful happened</h2>
       </section>
       <section class="gif gif--pokeHighFive">
@@ -47,23 +47,15 @@
           <li><a href="https://web.archive.org/web/20171111130116/https://octoverse.github.com/"><b>67M</b></a> repositories on <i class="fa fa-github"></i>, was <a href="https://web.archive.org/web/20130813144346/https://github.com/about/press"><b>28.9M</b></a> in 2015</li>
         </ul>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Is GIT hard?</h2>
       </section>
-      <section class="gif gif--kevinSpaceyNo">
-      </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="gif gif--kevinSpaceyNo"></section>
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Will it take me a long time to learn?</h2>
       </section>
-      <section class="gif gif--nickiMinajNo">
-      </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
-        <h2>I use SVN</h2>
-      </section>
-      <section class="gif gif--sadOprah">
-        <h1>My condolences.</h1>
-      </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="gif gif--nickiMinajNo"></section>
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Setup</h2>
       </section>
       <section>
@@ -84,13 +76,13 @@
           <li><a href="https://keybase.io/">keybase.io</a> encrypted private repos</li>
         </ul>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Terminology</h2>
       </section>
       <section>
-        <h2>Basic workflow</h2><br><img src="images/areas-BBYhMY.png" class="u-fullWidth">
+        <h2>Basic workflow</h2><br><img class="u-fullWidth" src="images/areas-BBYhMY.png">
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Let's create a repository!</h2>
       </section>
       <section>
@@ -118,7 +110,7 @@ Initial commit
 nothing to commit (create/copy files and use "git add" to track)
 </code></pre>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>The repository is empty, let's add stuff</h2>
       </section>
       <section>
@@ -128,9 +120,9 @@ Initial commit
 
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)
-  
+
   <span class="u-red">nyancat.js</span>
-  
+
 nothing added to commit but untracked files present (use "git add" to track)
 </code></pre>
       </section>
@@ -140,7 +132,7 @@ nothing added to commit but untracked files present (use "git add" to track)
         <p class="bullet">Add files to staging area</p>
         <p class="bullet"><i class="fa fa-lightbulb-o"></i> <code class="language-bash">git add -A</code> adds all new,
            modified, and deleted files from the working area
-           
+          
         </p>
       </section>
       <section>
@@ -150,9 +142,9 @@ Initial commit
 
 Changes to be committed:
   (use "git rm --cached &lt;file&gt;..." to unstage)
-  
+
   <span class="u-green">new file:   nyancat.js</span>
-  </code></pre>
+</code></pre>
       </section>
       <section>
         <h2>Commit</h2>
@@ -184,7 +176,7 @@ Author: Alex Katopodis &lt;akatopo@users.noreply.github.com&gt;
 Date:   Tue Dec 8 22:12:00 2015 +0200
 
     nyan~
-    </code></pre>
+</code></pre>
       </section>
       <section>
         <h2 class="bullet"><code>.gitignore</code></h2><br>
@@ -207,7 +199,7 @@ Date:   Tue Dec 8 22:12:00 2015 +0200
 tmp/**/*</code></pre><small class="bullet">More @ <a href="https://help.github.com/articles/ignoring-files/">help.github.com</a>
           </small>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Let's add some more content</h2>
       </section>
       <section>
@@ -215,9 +207,9 @@ tmp/**/*</code></pre><small class="bullet">More @ <a href="https://help.github.c
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
-  
+
   <span class="u-red">modified:   nyancat.js</span>
-  
+
 no changes added to commit (use "git add" and/or "git commit -a")
 </code></pre>
       </section>
@@ -240,7 +232,7 @@ index e69de29..f842659 100644
 @@ -0,0 +1 @@
 +console.log('meow!')</code><br><code class="bullet language-bash">$ git add nyancat.js</code><br><code class="bullet language-bash">$ git commit -m "meow"</code><br><code class="bullet language-git">[master b4ea710] meow
  1 file changed, 1 insertion(+)
- </code></pre>
+</code></pre>
       </section>
       <section>
         <h2>Remove changes</h2>
@@ -259,11 +251,11 @@ index e69de29..f842659 100644
           
         </p>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Branching out</h2>
       </section>
       <section>
-        <h2>Create a new branch</h2><br><img src="images/ahead-behind.png" class="u-fullWidth">
+        <h2>Create a new branch</h2><br><img class="u-fullWidth" src="images/ahead-behind.png">
       </section>
       <section>
         <h2>Branch</h2>
@@ -287,7 +279,7 @@ index e69de29..f842659 100644
 </code></pre>
       </section>
       <section>
-        <h2>Merge changes back</h2><br><img src="images/regular_branch_merge.png" class="u-fullWidth">
+        <h2>Merge changes back</h2><br><img class="u-fullWidth" src="images/regular_branch_merge.png">
       </section>
       <section>
         <h2>Merge</h2>
@@ -301,7 +293,7 @@ Fast-forward
  nyancat.js | 1 +
  1 file changed, 1 insertion(+)</code></pre>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Remotes</h2>
       </section>
       <section>
@@ -348,7 +340,7 @@ Updating 550fd06..1c866cb
 Fast-forward
  nyancat.js | 5 <span class="u-green">+++</span><span class="u-red">--</span>
  1 file changed, 3 insertions(+), 2 deletions(-)
- </code></pre>
+</code></pre>
       </section>
       <section>
         <h2>Clone repository</h2>
@@ -370,11 +362,11 @@ Checking connectivity... done.</code><br><code class="bullet language-bash">$ tr
 0 directories, 1 file
 </code></pre>
       </section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Let's put this all together</h2>
       </section>
-      <section><img src="images/git-transport-GIOGGU.png" class="u-fullWidth u-rounded"></section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section><img class="u-fullWidth u-rounded" src="images/git-transport-GIOGGU.png"></section>
+      <section class="emphatic-text" data-bespoke-backdrop="emphatic">
         <h2>Extras</h2>
       </section>
       <section>

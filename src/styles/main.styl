@@ -1,25 +1,22 @@
-// New to Stylus? Check out http://learnboost.github.io/stylus
-// Use modern CSS thanks to Autoprefixer: https://github.com/ai/autoprefixer
-
-// Import CSS from "node_modules" and "bower_components"
-// thanks to Stylus' "import css" and "paths" options
-
-// @import 'normalizecss/normalize.css'
-
-@import 'prismjs/themes/prism-okaidia.css'
-// Check out "bower_components/prism/themes/" for available themes
-
 @import 'font-awesome/css/font-awesome.css'
+@import 'prism-themes/themes/prism-vsc-dark-plus.css'
+@import './fira-code'
 
-// Style using Bespoke Classes: https://github.com/markdalgleish/bespoke-classes
+pre[class*="language-"],
+code[class*="language-"],
+code, kbd, pre, samp
+  font-family 'fira code', Monaco, 'Andale Mono', 'Ubuntu Mono', monospace
+
+ul li pre[class*="language-"]
+  width fit-content
+  margin-left auto
+  margin-right: auto
 
 // code blocks can take up all the slide width
 code[class*="language-"],
 pre[class*="language-"],
 code.bullet,
 pre.bullet
-  font-family: 'Operator Mono Book', 'Meslo LG S', Menlo, Consolas, Monaco,
-    'Andale Mono', 'Ubuntu Mono', monospace
   max-width: 640px // TODO: maybe add this to the theme
 
 // Some more horizontal padding for inline code

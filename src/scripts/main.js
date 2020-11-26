@@ -5,7 +5,6 @@ var nav = require('bespoke-nav');
 var scale = require('bespoke-scale');
 var bullets = require('bespoke-bullets');
 var hash = require('bespoke-hash');
-var prism = require('bespoke-prism');
 var multimedia = require('bespoke-multimedia');
 var extern = require('bespoke-extern');
 var theme = require('bespoke-theme-build-wars');
@@ -22,7 +21,6 @@ bespoke.from({ parent: 'article.deck', slides: 'section' }, [
   scale(),
   bullets('li, .bullet'),
   hash(),
-  prism(),
   multimedia(),
   backdrop(),
   fullscreen(),
@@ -30,3 +28,6 @@ bespoke.from({ parent: 'article.deck', slides: 'section' }, [
   camera(),
   extern(bespoke)
 ]);
+
+require('prismjs');
+require('prismjs/components/prism-git');

@@ -11,7 +11,6 @@ var theme = require('bespoke-theme-build-wars');
 var backdrop = require('bespoke-backdrop');
 var fullscreen = require('bespoke-fullscreen');
 var progress = require('bespoke-progress');
-var camera = require('bespoke-camera');
 
 // Bespoke.js
 bespoke.from({ parent: 'article.deck', slides: 'section' }, [
@@ -25,7 +24,6 @@ bespoke.from({ parent: 'article.deck', slides: 'section' }, [
   backdrop(),
   fullscreen(),
   progress(),
-  camera(),
   extern(bespoke)
 ]);
 
